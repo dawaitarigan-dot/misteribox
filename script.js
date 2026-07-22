@@ -1,399 +1,1479 @@
-<!DOCTYPE html>
-<html lang="id">
+/* =====================================================
+   MYSTERY BOX WEBSITE
+   SCRIPT.JS PART 5A
 
-<head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+   CORE SYSTEM + MYSTERY BOX
+===================================================== */
 
 
-<title>
-Buka Mystery Box - Premium
-</title>
+/* ================================
+   GLOBAL CONFIG
+================================ */
 
 
-<meta name="description" content="
-Buka Mystery Box dan dapatkan hadiah eksklusif.
-">
+const PROMO_CODE = "BONUS2026";
 
 
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-
-<link href="
-https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap
-" rel="stylesheet">
+const CLAIM_URL = 
+"https://kilauyes.com/";
 
 
 
-<link rel="stylesheet" href="style.css">
-
-
-</head>
+let boxAlreadyOpened = false;
 
 
 
-<body>
 
 
 
-<!-- =====================
-NAVBAR
-===================== -->
+/* ================================
+   DOM HELPER
+================================ */
 
 
-<header class="navbar">
+const get = (id)=>{
+
+    return document.getElementById(id);
+
+};
 
 
-<div class="logo">
 
-🎁 MYSTERY BOX
+
+
+
+/* ================================
+   PAGE DETECTOR
+================================ */
+
+
+document.addEventListener(
+"DOMContentLoaded",
+()=>{
+
+
+    initMysteryBox();
+
+
+    initActivity();
+
+
+
+});
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   MYSTERY BOX SYSTEM
+===================================================== */
+
+
+
+
+
+function initMysteryBox(){
+
+
+
+const promoInput =
+get("promoInput");
+
+
+
+const submitPromo =
+get("submitPromo");
+
+
+
+const openButton =
+get("openBoxBtn");
+
+
+
+const promoBox =
+get("promoBox");
+
+
+
+
+if(openButton){
+
+
+openButton.onclick = ()=>{
+
+
+if(promoBox){
+
+
+promoBox.classList.add(
+"active"
+);
+
+
+}
+
+
+
+};
+
+
+
+}
+
+
+
+
+
+
+if(submitPromo){
+
+
+submitPromo.onclick = ()=>{
+
+
+checkPromo();
+
+
+
+};
+
+
+
+}
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+/* ================================
+   CHECK PROMO
+================================ */
+
+
+
+function checkPromo(){
+
+
+
+const input =
+get("promoInput");
+
+
+
+if(!input)
+return;
+
+
+
+let code =
+input.value
+.trim()
+.toUpperCase();
+
+
+
+
+
+if(code === PROMO_CODE){
+
+
+
+showToast(
+"Kode berhasil! Mystery Box dibuka 🎁"
+);
+
+
+
+let promoBox =
+get("promoBox");
+
+
+
+if(promoBox){
+
+
+promoBox.style.display =
+"none";
+
+
+}
+
+
+
+
+
+startBoxAnimation();
+
+
+
+
+
+}
+
+else{
+
+
+showToast(
+"Kode promo salah!"
+);
+
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ================================
+   BOX ANIMATION
+================================ */
+
+
+
+function startBoxAnimation(){
+
+
+
+if(boxAlreadyOpened)
+return;
+
+
+
+boxAlreadyOpened=true;
+
+
+
+
+
+const box =
+get("mysteryBox");
+
+
+
+const countdown =
+get("countdown");
+
+
+
+
+
+if(!box)
+return;
+
+
+
+
+
+box.classList.add(
+"opening"
+);
+
+
+
+
+
+let count = 3;
+
+
+
+
+if(countdown){
+
+
+
+countdown.style.display =
+"block";
+
+
+
+countdown.innerHTML =
+count;
+
+
+
+}
+
+
+
+
+
+
+let timer = setInterval(()=>{
+
+
+count--;
+
+
+
+if(countdown){
+
+
+countdown.innerHTML =
+count;
+
+
+}
+
+
+
+
+if(count <=0){
+
+
+clearInterval(timer);
+
+
+
+if(countdown){
+
+
+countdown.style.display =
+"none";
+
+
+}
+
+
+
+openBoxReward();
+
+
+
+}
+
+
+
+},1000);
+
+
+
+}
+
+
+
+
+
+
+
+
+/* ================================
+   OPEN BOX
+================================ */
+
+
+
+function openBoxReward(){
+
+
+
+const box =
+get("mysteryBox");
+
+
+
+if(box){
+
+
+
+box.classList.add(
+"opened"
+);
+
+
+
+}
+
+
+
+
+
+setTimeout(()=>{
+
+
+showReward();
+
+
+
+createConfetti();
+
+
+
+},900);
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+/* ================================
+   END PART 5A
+=====================================================
+/* =====================================================
+   MYSTERY BOX WEBSITE
+   SCRIPT.JS PART 5B
+
+   REWARD SYSTEM + CLAIM + CONFETTI
+===================================================== */
+
+
+
+
+
+/* ================================
+   REWARD DATABASE
+
+   TOTAL = 100%
+
+   Rp25.000       35%
+   Rp50.000       25%
+   Rp100.000      30%
+   Rp200.000       5%
+   Rp500.000       4%
+   Rp2.000.000     1%
+
+================================ */
+
+
+
+const rewardList = [
+
+
+    {
+        name:"Common",
+        amount:25000,
+        rate:35
+    },
+
+
+    {
+        name:"Common",
+        amount:50000,
+        rate:25
+    },
+
+
+    {
+        name:"Common",
+        amount:100000,
+        rate:30
+    },
+
+
+    {
+        name:"Epic",
+        amount:200000,
+        rate:5
+    },
+
+
+    {
+        name:"Legendary",
+        amount:500000,
+        rate:4
+    },
+
+
+    {
+        name:"Jackpot",
+        amount:2000000,
+        rate:1
+    }
+
+
+];
+
+
+
+
+
+
+
+
+/* ================================
+   RANDOM GENERATOR
+================================ */
+
+
+function generateReward(){
+
+
+
+let random =
+Math.random()*100;
+
+
+
+let total = 0;
+
+
+
+
+for(let reward of rewardList){
+
+
+
+    total += reward.rate;
+
+
+
+    if(random <= total){
+
+
+        return reward;
+
+
+
+    }
+
+
+}
+
+
+
+
+return rewardList[0];
+
+
+
+}
+
+
+
+
+
+
+
+
+/* ================================
+   SHOW REWARD
+================================ */
+
+
+function showReward(){
+
+
+
+const resultBox =
+get("resultBox");
+
+
+const rewardNumber =
+get("rewardNumber");
+
+
+const rewardMessage =
+get("rewardMessage");
+
+
+const claimBtn =
+get("claimBtn");
+
+
+
+
+
+if(!resultBox)
+return;
+
+
+
+
+
+
+let reward =
+generateReward();
+
+
+
+
+
+
+resultBox.classList.add(
+"show"
+);
+
+
+
+
+
+
+animateMoney(
+rewardNumber,
+reward.amount
+);
+
+
+
+
+
+
+if(rewardMessage){
+
+
+
+rewardMessage.innerHTML = `
+
+🎉 Selamat! Anda berhasil mendapatkan hadiah Mystery Box.
+
+<br><br>
+
+Kategori:
+<strong>
+${reward.name}
+</strong>
+
+
+<br>
+
+Klik tombol Claim Hadiah untuk melanjutkan proses klaim.
+
+`;
+
+
+
+}
+
+
+
+
+
+if(claimBtn){
+
+
+claimBtn.style.display =
+"inline-flex";
+
+
+
+claimBtn.onclick = ()=>{
+
+
+claimReward();
+
+
+
+};
+
+
+
+}
+
+
+
+
+}
+
+
+
+
+
+
+
+
+/* ================================
+   MONEY COUNT ANIMATION
+================================ */
+
+
+function animateMoney(
+element,
+target
+){
+
+
+
+if(!element)
+return;
+
+
+
+let start = 0;
+
+
+
+let duration = 1500;
+
+
+
+let stepTime =
+20;
+
+
+
+let increment =
+target /
+(duration / stepTime);
+
+
+
+
+
+let counter =
+setInterval(()=>{
+
+
+start += increment;
+
+
+
+if(start >= target){
+
+
+
+start = target;
+
+
+
+clearInterval(counter);
+
+
+
+}
+
+
+
+
+element.innerHTML =
+formatRupiah(
+Math.floor(start)
+);
+
+
+
+
+
+},stepTime);
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ================================
+   FORMAT RUPIAH
+================================ */
+
+
+function formatRupiah(number){
+
+
+
+return new Intl.NumberFormat(
+
+"id-ID",
+
+{
+
+style:"currency",
+
+currency:"IDR",
+
+maximumFractionDigits:0
+
+}
+
+)
+
+.format(number);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+/* ================================
+   CLAIM SYSTEM
+================================ */
+
+
+
+function claimReward(){
+
+
+
+showToast(
+
+"Menuju halaman klaim hadiah..."
+
+);
+
+
+
+setTimeout(()=>{
+
+
+
+window.location.href =
+CLAIM_URL;
+
+
+
+},1200);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+/* ================================
+   CONFETTI SYSTEM
+================================ */
+
+
+
+function createConfetti(){
+
+
+
+for(
+let i=0;
+i<120;
+i++
+){
+
+
+
+let confetti =
+document.createElement(
+"div"
+);
+
+
+
+confetti.className =
+"confetti";
+
+
+
+
+confetti.style.left =
+
+Math.random()*100
++
+"vw";
+
+
+
+
+
+confetti.style.animationDuration =
+
+(
+Math.random()*3+2
+)
++
+"s";
+
+
+
+
+
+confetti.style.background =
+
+randomConfettiColor();
+
+
+
+
+
+document.body.appendChild(
+confetti
+);
+
+
+
+
+
+
+setTimeout(()=>{
+
+
+confetti.remove();
+
+
+
+},
+5000);
+
+
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+/* ================================
+   CONFETTI COLOR
+================================ */
+
+
+
+function randomConfettiColor(){
+
+
+const colors=[
+
+"#ffd700",
+
+"#ffffff",
+
+"#00ff88",
+
+"#ff4d4d",
+
+"#4da6ff"
+
+];
+
+
+
+return colors[
+
+Math.floor(
+Math.random()*colors.length
+)
+
+];
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ================================
+   TOAST MESSAGE
+================================ */
+
+
+
+function showToast(message){
+
+
+
+let toast =
+document.createElement(
+"div"
+);
+
+
+
+toast.className =
+"toast";
+
+
+
+toast.innerHTML =
+message;
+
+
+
+
+document.body.appendChild(
+toast
+);
+
+
+
+
+
+setTimeout(()=>{
+
+
+toast.classList.add(
+"show"
+);
+
+
+
+},100);
+
+
+
+
+
+setTimeout(()=>{
+
+
+toast.remove();
+
+
+
+},3000);
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+/* =====================================================
+   END SCRIPT.JS PART 5B
+===================================================== */
+/* =====================================================
+   MYSTERY BOX WEBSITE
+   SCRIPT.JS PART 5C
+
+   ACTIVITY SYSTEM + FINISHING
+===================================================== */
+
+
+
+
+
+/* ================================
+   ACTIVITY USER DATABASE
+================================ */
+
+
+
+const fakeUsers = [
+
+"as***23",
+
+"ri***81",
+
+"de***45",
+
+"fa***17",
+
+"an***62",
+
+"iq***09",
+
+"ha***54",
+
+"ar***37",
+
+"za***88",
+
+"mi***21",
+
+"ra***76",
+
+"ke***14",
+
+"lu***55",
+
+"jo***92"
+
+];
+
+
+
+
+
+
+
+
+
+/* ================================
+   INIT ACTIVITY PAGE
+================================ */
+
+
+
+function initActivity(){
+
+
+
+const activityList =
+get("activityList");
+
+
+
+if(!activityList)
+return;
+
+
+
+
+
+loadActivities();
+
+
+
+
+
+startActivityUpdate();
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+/* ================================
+   LOAD INITIAL DATA
+================================ */
+
+
+function loadActivities(){
+
+
+
+const activityList =
+get("activityList");
+
+
+
+if(!activityList)
+return;
+
+
+
+
+activityList.innerHTML="";
+
+
+
+
+
+
+for(
+let i=0;
+i<10;
+i++
+){
+
+
+
+activityList.appendChild(
+
+createActivityItem()
+
+);
+
+
+
+}
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ================================
+   CREATE ACTIVITY ITEM
+================================ */
+
+
+function createActivityItem(){
+
+
+
+let user =
+
+fakeUsers[
+
+Math.floor(
+
+Math.random()
+*
+fakeUsers.length
+
+)
+
+];
+
+
+
+
+
+let reward =
+
+generateReward();
+
+
+
+
+
+
+
+let item =
+
+document.createElement(
+"div"
+);
+
+
+
+
+
+item.className =
+
+"activity-item";
+
+
+
+
+
+item.innerHTML = `
+
+
+<div class="activity-user">
+
+
+<div class="activity-icon">
+
+✓
 
 </div>
 
 
 
-<nav>
+<div class="activity-name">
 
-
-<a href="index.html">
-
-🏠 Home
-
-</a>
-
-
-<a href="mystery-box.html" class="active">
-
-🎁 Mystery Box
-
-</a>
-
-
-
-<a href="aktivitas.html">
-
-🏆 Aktivitas
-
-</a>
-
-
-</nav>
-
-
-
-</header>
-
-
-
-
-
-
-
-
-<!-- =====================
-MYSTERY HERO
-===================== -->
-
-
-<section class="mystery-hero">
-
-
-<div class="hero-content">
-
-
-
-<div class="premium-badge">
-
-✨ SPECIAL REWARD
+${user}
 
 </div>
-
-
-
-
-<h1>
-
-Buka Mystery Box
-
-<span>
-Sekarang
-</span>
-
-</h1>
-
-
-
-
-<p>
-
-Masukkan kode promo untuk membuka kesempatan mendapatkan hadiah.
-
-</p>
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-
-
-
-<!-- =====================
-PROMO AREA
-===================== -->
-
-
-<section class="promo-section">
-
-
-
-<div class="promo-card" id="promoBox">
-
-
-<h2>
-
-🔑 Masukkan Kode Promo
-
-</h2>
-
-
-
-<p>
-
-Gunakan kode promo untuk membuka Mystery Box
-
-</p>
-
-
-
-
-<input 
-
-type="text"
-
-id="promoInput"
-
-placeholder="Masukkan kode promo">
-
-
-
-
-
-<button
-
-class="btn gold-btn"
-
-id="submitPromo">
-
-
-Buka Box 🎁
-
-
-</button>
-
 
 
 </div>
 
 
 
-</section>
+<div class="activity-reward">
 
+Berhasil claim
 
+<br>
 
-
-
-
-
-
-
-
-
-
-<!-- =====================
-BOX AREA
-===================== -->
-
-
-<section class="box-section">
-
-
-
-<h2>
-
-Mystery Box Anda
-
-</h2>
-
-
-
-
-<div 
-
-class="mystery-box"
-
-id="mysteryBox">
-
-
-
-<div class="box-glow"></div>
-
-
-
-<div class="box-top">
-
+${formatRupiah(reward.amount)}
 
 </div>
 
 
 
+`;
 
-<div class="box-body">
 
 
-🎁
 
 
-</div>
 
+return item;
 
 
-</div>
 
+}
 
 
 
 
 
-<div 
 
-class="countdown"
 
-id="countdown">
 
 
-3
+/* ================================
+   AUTO UPDATE ACTIVITY
+================================ */
 
 
-</div>
+function startActivityUpdate(){
 
 
 
+const activityList =
+get("activityList");
 
 
-<p class="open-info">
 
+if(!activityList)
+return;
 
-Tunggu kejutan hadiah muncul...
 
-</p>
 
 
 
-</section>
 
+let randomTime =
 
+Math.floor(
 
+Math.random()*15000
 
+)
 
++
 
+15000;
 
 
 
 
 
 
+setInterval(()=>{
 
 
-<!-- =====================
-RESULT HADIAH
-===================== -->
 
 
-<section 
 
-class="result-box"
+let newActivity =
 
-id="resultBox">
+createActivityItem();
 
 
 
-<div class="reward-icon">
 
-🎉
 
-</div>
+newActivity.style.opacity="0";
 
 
 
-<h2>
 
-Selamat!
 
-</h2>
+activityList.prepend(
+newActivity
+);
 
 
 
-<div
 
-class="reward-number"
 
-id="rewardNumber">
 
+setTimeout(()=>{
 
-Rp0
 
+newActivity.style.opacity="1";
 
-</div>
 
 
+},100);
 
 
-<p
 
-id="rewardMessage">
 
 
-</p>
 
 
 
+if(
+activityList.children.length
+>
+10
 
+){
 
 
-<button
+activityList.lastElementChild.remove();
 
-class="btn gold-btn"
 
-id="claimBtn">
 
+}
 
-Claim Hadiah 🎁
 
 
-</button>
 
 
+},
 
-</section>
+randomTime);
 
 
 
 
 
+}
 
 
 
@@ -402,183 +1482,148 @@ Claim Hadiah 🎁
 
 
 
-<!-- =====================
-REWARD INFO
-===================== -->
 
+/* ================================
+   BUTTON RIPPLE EFFECT
+================================ */
 
-<section class="reward-info">
 
+document.addEventListener(
 
+"click",
 
-<h2>
+function(e){
 
-Kategori Hadiah
 
-</h2>
 
+let button =
 
+e.target.closest(
+".btn"
+);
 
-<div class="reward-grid">
 
 
+if(!button)
+return;
 
-<div class="reward-card">
 
-🥉
 
-<h3>
 
-Common
 
-</h3>
+let ripple =
 
-<p>
+document.createElement(
+"span"
+);
 
-Rp25.000 - Rp100.000
 
-</p>
 
-</div>
 
+ripple.className =
+"ripple";
 
 
 
 
-<div class="reward-card">
+button.appendChild(
+ripple
+);
 
-🥈
 
-<h3>
 
-Epic
 
-</h3>
 
-<p>
+setTimeout(()=>{
 
-Rp200.000
 
-</p>
+ripple.remove();
 
-</div>
 
 
+},600);
 
 
 
 
-<div class="reward-card">
+}
 
-🥇
+);
 
-<h3>
 
-Legendary
 
-</h3>
 
-<p>
 
-Rp500.000 - Rp2.000.000
 
-</p>
 
-</div>
 
 
 
-</div>
+/* ================================
+   PAGE LOAD EFFECT
+================================ */
 
 
-</section>
+window.addEventListener(
 
+"load",
 
+()=>{
 
 
 
+document.body.classList.add(
+"loaded"
+);
 
 
 
+}
 
-<!-- =====================
-FOOTER
-===================== -->
+);
 
 
-<footer class="footer">
 
 
-<div class="footer-logo">
 
-🎁 MYSTERY BOX
 
-</div>
 
 
 
+/* ================================
+   PROTECT DOUBLE CLAIM
+================================ */
 
-<p>
 
-Nikmati pengalaman membuka Mystery Box premium.
 
-</p>
+window.addEventListener(
 
+"beforeunload",
 
+()=>{
 
-<div class="footer-menu">
 
+boxAlreadyOpened=false;
 
-<a href="index.html">
 
-Home
+}
 
-</a>
+);
 
 
-<a href="mystery-box.html">
 
-Mystery Box
 
-</a>
 
 
-<a href="aktivitas.html">
 
-Aktivitas
 
-</a>
 
+/* =====================================================
+   SCRIPT.JS COMPLETE
 
+   PART 5A
+   PART 5B
+   PART 5C
 
-</div>
-
-
-
-<p class="copyright">
-
-© 2026 Mystery Box
-
-</p>
-
-
-</footer>
-
-
-
-
-
-
-
-
-
-<!-- JAVASCRIPT GLOBAL -->
-
-<script src="script.js"></script>
-
-
-
-</body>
-
-
-</html>
+   MYSTERY BOX WEBSITE READY
+===================================================== */
