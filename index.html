@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mystery Box | Klaim Hadiah Eksklusif</title>
+
+    <meta name="description" content="Buka Mystery Box dan menangkan hadiah hingga Rp2.000.000.">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!--=====================================
+    LOADING SCREEN
+======================================-->
+
+<div id="loader">
+
+    <div class="loader-logo">
+        <img src="images/logo.png" alt="Logo">
+    </div>
+
+    <div class="loader-spinner"></div>
+
+    <p>Memuat Mystery Box...</p>
+
+</div>
+
+<!--=====================================
+    PARTICLE BACKGROUND
+======================================-->
+
+<div id="particles"></div>
+
+<!--=====================================
+    HERO
+======================================-->
+
+<header class="hero">
+
+<div class="overlay"></div>
+
+<div class="hero-content">
+
+    <img src="images/logo.png" class="logo">
+
+    <h1>
+        Mystery Box
+    </h1>
+
+    <p>
+
+        Masukkan kode promo dan buka Mystery Box
+        untuk mendapatkan hadiah hingga
+
+        <span>Rp2.000.000</span>
+
+    </p>
+
+    <button id="openPromo">
+
+        <i class="fa-solid fa-gift"></i>
+
+        Buka Mystery Box
+
+    </button>
+
+</div>
+
+</header>
+
+<!--=====================================
+    MYSTERY BOX
+======================================-->
+
+<section class="box-section">
+
+<div class="box-container">
+
+    <div id="mysteryBox">
+
+        <img src="images/box.png" alt="Mystery Box">
+
+    </div>
+
+</div>
+
+</section>
+
+<!--=====================================
+    PROMO MODAL
+======================================-->
+
+<div id="promoModal" class="modal">
+
+<div class="modal-content">
+
+    <span class="closeModal">&times;</span>
+
+    <h2>
+
+        Masukkan Kode Promo
+
+    </h2>
+
+    <p>
+
+        Masukkan kode promo untuk membuka Mystery Box.
+
+    </p>
+
+    <input
+    type="text"
+    id="promoCode"
+    placeholder="Masukkan kode promo">
+
+    <button id="submitPromo">
+
+        Buka Sekarang
+
+    </button>
+
+    <small id="promoMessage"></small>
+
+</div>
+
+</div>
+
+<!--=====================================
+    COUNTDOWN
+======================================-->
+
+<section id="countdownSection">
+
+<h2>
+
+Membuka Mystery Box
+
+</h2>
+
+<div id="countdown">
+
+3
+
+</div>
+
+</section>
+
+<!--=====================================
+    REWARD
+======================================-->
+
+<section id="rewardSection">
+
+<div class="reward-card">
+
+    <h3>
+
+        🎉 Selamat!
+
+    </h3>
+
+    <p>
+
+        Anda mendapatkan hadiah
+
+    </p>
+
+    <h1 id="rewardAmount">
+
+        Rp0
+
+    </h1>
+
+    <span id="rewardTier">
+
+        Common
+
+    </span>
+
+    <p class="reward-text">
+
+        Selamat!
+        Anda berhasil mendapatkan hadiah Mystery Box.
+
+        Klik tombol Claim Hadiah
+        untuk melanjutkan proses klaim.
+
+    </p>
+
+    <button id="claimReward">
+
+        Claim Hadiah
+
+    </button>
+
+</div>
+
+</section>
+
+<!--=====================================
+    ACTIVITY FEED
+======================================-->
+
+<section class="activity">
+
+<h2>
+
+Aktivitas Terbaru
+
+</h2>
+
+<div id="activityFeed">
+
+<!-- Javascript -->
+
+</div>
+
+<p class="activity-note">
+
+Aktivitas yang ditampilkan merupakan simulasi
+untuk demonstrasi antarmuka hingga tersedia
+data klaim aktual.
+
+</p>
+
+</section>
+
+<!--=====================================
+    FOOTER
+======================================-->
+
+<footer>
+
+<p>
+
+© 2026 Mystery Box
+
+</p>
+
+</footer>
+
+<!--=====================================
+    CONFETTI
+======================================-->
+
+<canvas id="confetti"></canvas>
+
+<!--=====================================
+    AUDIO
+======================================-->
+
+<audio id="openSound">
+
+<source src="audio/open.mp3" type="audio/mpeg">
+
+</audio>
+
+<audio id="winSound">
+
+<source src="audio/win.mp3" type="audio/mpeg">
+
+</audio>
+
+<!--=====================================
+    JAVASCRIPT
+======================================-->
+
+<script src="script.js"></script>
+
+</body>
+</html>
