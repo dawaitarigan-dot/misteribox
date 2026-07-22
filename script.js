@@ -1,636 +1,584 @@
-// =====================================
-// MYSTERY BOX SYSTEM
-// SCRIPT.JS
-// =====================================
+<!DOCTYPE html>
+<html lang="id">
 
+<head>
 
-// ==============================
-// CONFIGURATION
-// ==============================
+<meta charset="UTF-8">
 
-const PROMO_CODE = "BONUS2026";
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-const CLAIM_URL = "https://kilauyes.com/";
 
+<title>
+Buka Mystery Box - Premium
+</title>
 
-// ==============================
-// REWARD SYSTEM
-// TOTAL DROP RATE = 100%
-// ==============================
 
+<meta name="description" content="
+Buka Mystery Box dan dapatkan hadiah eksklusif.
+">
 
-const rewards = [
-    {
-        name: "Common",
-        amount: 25000,
-        chance: 35
-    },
 
-    {
-        name: "Common",
-        amount: 50000,
-        chance: 25
-    },
 
-    {
-        name: "Rare",
-        amount: 100000,
-        chance: 20
-    },
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
-    {
-        name: "Epic",
-        amount: 200000,
-        chance: 10
-    },
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    {
-        name: "Legendary",
-        amount: 500000,
-        chance: 5
-    },
 
-    {
-        name: "Mythic",
-        amount: 2000000,
-        chance: 5
-    }
-];
+<link href="
+https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap
+" rel="stylesheet">
 
 
-// ==============================
-// DOM ELEMENT
-// ==============================
 
+<link rel="stylesheet" href="style.css">
 
-const openBtn = document.querySelector("#openPromo");
 
+</head>
 
-const promoModal = document.querySelector("#promoModal");
 
 
-const promoInput = document.querySelector("#promoCode");
+<body>
 
 
-const submitPromo = document.querySelector("#submitPromo");
 
+<!-- =====================
+NAVBAR
+===================== -->
 
-const promoMessage = document.querySelector("#promoMessage");
 
+<header class="navbar">
 
-const mysteryBox = document.querySelector("#mysteryBox");
 
+<div class="logo">
 
-const countdown = document.querySelector("#countdown");
+🎁 MYSTERY BOX
 
+</div>
 
-const rewardSection = document.querySelector("#rewardSection");
 
 
-const rewardAmount = document.querySelector("#rewardAmount");
+<nav>
 
 
-const rewardTier = document.querySelector("#rewardTier");
+<a href="index.html">
 
+🏠 Home
 
-const claimBtn = document.querySelector("#claimReward");
+</a>
 
 
-const activityFeed = document.querySelector("#activityFeed");
+<a href="mystery-box.html" class="active">
 
+🎁 Mystery Box
 
-const closeModal = document.querySelector(".closeModal");
+</a>
 
 
-const openSound = document.querySelector("#openSound");
 
+<a href="aktivitas.html">
 
-const winSound = document.querySelector("#winSound");
+🏆 Aktivitas
 
+</a>
 
 
-// ==============================
-// OPEN PROMO POPUP
-// ==============================
+</nav>
 
 
-openBtn.addEventListener("click",()=>{
 
-    promoModal.classList.add("active");
+</header>
 
-});
 
 
 
-// ==============================
-// CHECK PROMO CODE
-// ==============================
 
 
-submitPromo.addEventListener("click",()=>{
 
 
-    let code = promoInput.value.trim();
+<!-- =====================
+MYSTERY HERO
+===================== -->
 
 
-    if(code === PROMO_CODE){
+<section class="mystery-hero">
 
 
-        promoModal.classList.remove("active");
+<div class="hero-content">
 
 
-        startOpening();
 
+<div class="premium-badge">
 
-    }
+✨ SPECIAL REWARD
 
-    else{
+</div>
 
 
-        promoInput.classList.add("error");
 
 
-        setTimeout(()=>{
+<h1>
 
-            promoInput.classList.remove("error");
+Buka Mystery Box
 
-        },500);
+<span>
+Sekarang
+</span>
 
+</h1>
 
-    }
 
 
-});
 
+<p>
 
+Masukkan kode promo untuk membuka kesempatan mendapatkan hadiah.
 
-// ==============================
-// OPEN MYSTERY BOX
-// ==============================
+</p>
 
 
-function startOpening(){
 
+</div>
 
-    mysteryBox.classList.add("shake");
 
+</section>
 
-    countdown.style.display="block";
 
 
-    let time = 3;
 
 
-    countdown.innerHTML=time;
 
 
 
-    let timer=setInterval(()=>{
 
 
-        time--;
+<!-- =====================
+PROMO AREA
+===================== -->
 
 
-        countdown.innerHTML=time;
+<section class="promo-section">
 
 
 
-        if(time<=0){
+<div class="promo-card" id="promoBox">
 
 
-            clearInterval(timer);
+<h2>
 
+🔑 Masukkan Kode Promo
 
-            countdown.style.display="none";
+</h2>
 
 
-            openMysteryBox();
 
+<p>
 
-        }
+Gunakan kode promo untuk membuka Mystery Box
 
+</p>
 
 
-    },1000);
 
 
+<input 
 
-}
+type="text"
 
+id="promoInput"
 
+placeholder="Masukkan kode promo">
 
 
-// ==============================
-// RANDOM REWARD
-// ==============================
 
 
-function generateReward(){
 
+<button
 
-    let random = Math.random()*100;
+class="btn gold-btn"
 
+id="submitPromo">
 
-    let total = 0;
 
+Buka Box 🎁
 
 
-    for(let reward of rewards){
+</button>
 
 
-        total += reward.chance;
 
+</div>
 
 
-        if(random <= total){
 
+</section>
 
-            return reward;
 
 
-        }
 
 
-    }
 
 
 
-}
 
 
 
 
-// ==============================
-// BOX OPEN ANIMATION
-// ==============================
+<!-- =====================
+BOX AREA
+===================== -->
 
 
-function openMysteryBox(){
+<section class="box-section">
 
 
 
-    mysteryBox.classList.remove("shake");
+<h2>
 
+Mystery Box Anda
 
-    mysteryBox.classList.add("open");
+</h2>
 
 
 
-    setTimeout(()=>{
 
+<div 
 
-        let result = generateReward();
+class="mystery-box"
 
+id="mysteryBox">
 
 
-        showReward(result);
 
+<div class="box-glow"></div>
 
 
-    },2000);
 
+<div class="box-top">
 
 
-}
+</div>
 
 
 
 
-// ==============================
-// SHOW RESULT
-// ==============================
+<div class="box-body">
 
 
-function showReward(result){
+🎁
 
 
+</div>
 
-    rewardSection.style.display="block";
 
 
+</div>
 
-    rewardTier.innerHTML = result.name;
 
 
 
-    rewardAmount.innerHTML =
-    formatRupiah(result.amount);
 
 
+<div 
 
-    createConfetti();
+class="countdown"
 
+id="countdown">
 
 
-    if(result.name==="Mythic"){
+3
 
 
-        rewardBox.classList.add("jackpot");
+</div>
 
 
-        rewardType.innerHTML =
-        "👑 JACKPOT MYTHIC";
 
 
-    }
 
+<p class="open-info">
 
 
-}
+Tunggu kejutan hadiah muncul...
 
+</p>
 
 
 
-// ==============================
-// FORMAT RUPIAH
-// ==============================
+</section>
 
 
-function formatRupiah(number){
 
 
-    return new Intl.NumberFormat(
-        "id-ID",
-        {
-            style:"currency",
-            currency:"IDR",
-            maximumFractionDigits:0
-        }
 
-    ).format(number);
 
 
-}
 
 
 
-// ==============================
-// CLAIM BUTTON
-// ==============================
 
 
-claimBtn.addEventListener("click",()=>{
 
 
-    window.location.href = CLAIM_URL;
+<!-- =====================
+RESULT HADIAH
+===================== -->
 
 
-});
+<section 
 
+class="result-box"
 
+id="resultBox">
 
 
 
-// ==============================
-// CONFETTI SYSTEM
-// ==============================
+<div class="reward-icon">
 
+🎉
 
-function createConfetti(){
+</div>
 
 
-    for(let i=0;i<120;i++){
 
+<h2>
 
-        let confetti =
-        document.createElement("span");
+Selamat!
 
+</h2>
 
-        confetti.className="confetti";
 
 
-        confetti.style.left =
-        Math.random()*100+"vw";
+<div
 
+class="reward-number"
 
-        confetti.style.animationDelay =
-        Math.random()*2+"s";
+id="rewardNumber">
 
 
-        confetti.style.transform =
-        `rotate(${Math.random()*360}deg)`;
+Rp0
 
 
-        document.body.appendChild(confetti);
+</div>
 
 
 
-        setTimeout(()=>{
 
+<p
 
-            confetti.remove();
+id="rewardMessage">
 
 
-        },4000);
+</p>
 
 
 
-    }
 
 
-}
 
+<button
 
+class="btn gold-btn"
 
+id="claimBtn">
 
 
+Claim Hadiah 🎁
 
-// ==============================
-// CLAIM ACTIVITY SIMULATION
-// ==============================
 
+</button>
 
 
-const users=[
 
-"as",
-"ri",
-"de",
-"fa",
-"an",
-"iq",
-"ha",
-"ar",
-"jo",
-"mi",
-"ke",
-"lu"
+</section>
 
-];
 
 
 
-const amounts=[
 
-25000,
-50000,
-100000,
-200000,
-500000,
-2000000
 
-];
 
 
 
 
-function randomUser(){
 
 
-    let name =
-    users[
-        Math.floor(
-            Math.random()*users.length
-        )
-    ];
 
+<!-- =====================
+REWARD INFO
+===================== -->
 
-    let number =
-    Math.floor(
-        Math.random()*99
-    )
-    .toString()
-    .padStart(2,"0");
 
+<section class="reward-info">
 
 
-    return name+"***"+number;
 
+<h2>
 
-}
+Kategori Hadiah
 
+</h2>
 
 
 
+<div class="reward-grid">
 
-function createActivity(){
 
 
-    let user=randomUser();
+<div class="reward-card">
 
+🥉
 
-    let money =
-    amounts[
-        Math.floor(
-            Math.random()*amounts.length
-        )
-    ];
+<h3>
 
+Common
 
+</h3>
 
-    let item =
-    document.createElement("div");
+<p>
 
+Rp25.000 - Rp100.000
 
-    item.className="activity-item";
+</p>
 
+</div>
 
-    item.innerHTML=`
 
-    <div class="check">
-        ✓
-    </div>
 
-    <div>
-        <strong>${user}</strong>
-        <p>
-        Berhasil claim ${formatRupiah(money)}
-        </p>
-    </div>
 
-    `;
 
+<div class="reward-card">
 
+🥈
 
-    return item;
+<h3>
 
+Epic
 
-}
+</h3>
 
+<p>
 
+Rp200.000
 
+</p>
 
+</div>
 
-function loadActivity(){
 
 
-    activityFeed.innerHTML="";
 
 
-    for(let i=0;i<10;i++){
 
+<div class="reward-card">
 
-        activityFeed.appendChild(
-            createActivity()
-        );
+🥇
 
+<h3>
 
-    }
+Legendary
 
+</h3>
 
-}
+<p>
 
+Rp500.000 - Rp2.000.000
 
+</p>
 
+</div>
 
-// update satu data random
-function updateActivity(){
 
 
+</div>
 
-    let newItem =
-    createActivity();
 
+</section>
 
 
-    newItem.classList.add(
-        "slide"
-    );
 
 
-    activityFeed.prepend(
-        newItem
-    );
 
 
 
-    if(activityFeed.children.length>10){
 
 
-        activityFeed.lastChild.remove();
+<!-- =====================
+FOOTER
+===================== -->
 
 
-    }
+<footer class="footer">
 
 
+<div class="footer-logo">
 
-}
+🎁 MYSTERY BOX
 
+</div>
 
 
-// jalankan pertama
 
-loadActivity();
 
+<p>
 
+Nikmati pengalaman membuka Mystery Box premium.
 
-// update 15-30 detik
+</p>
 
-setInterval(()=>{
 
 
-    updateActivity();
+<div class="footer-menu">
 
 
-},
-Math.floor(
-    Math.random()*15000
-)+15000
-);
+<a href="index.html">
 
+Home
 
+</a>
 
 
-// =====================================
-// END SCRIPT
-// =====================================
+<a href="mystery-box.html">
+
+Mystery Box
+
+</a>
+
+
+<a href="aktivitas.html">
+
+Aktivitas
+
+</a>
+
+
+
+</div>
+
+
+
+<p class="copyright">
+
+© 2026 Mystery Box
+
+</p>
+
+
+</footer>
+
+
+
+
+
+
+
+
+
+<!-- JAVASCRIPT GLOBAL -->
+
+<script src="script.js"></script>
+
+
+
+</body>
+
+
+</html>
