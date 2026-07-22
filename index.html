@@ -1,283 +1,537 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Mystery Box | Klaim Hadiah Eksklusif</title>
+<meta charset="UTF-8">
 
-    <meta name="description" content="Buka Mystery Box dan menangkan hadiah hingga Rp2.000.000.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<title>
+Mystery Box Premium
+</title>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
+
+<meta name="description" content="
+Buka Mystery Box Premium dan dapatkan hadiah menarik.
+">
+
+
+<!-- GOOGLE FONT -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+<link href="
+https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap
+" rel="stylesheet">
+
+
+
+<!-- CSS GLOBAL -->
+
+<link rel="stylesheet" href="style.css">
+
+
 </head>
+
+
 
 <body>
 
-<!--=====================================
-    LOADING SCREEN
-======================================-->
 
-<div id="loader">
+<!-- =====================
+NAVBAR
+===================== -->
 
-    <div class="loader-logo">
-        <img src="images/logo.png" alt="Logo">
-    </div>
 
-    <div class="loader-spinner"></div>
+<header class="navbar">
 
-    <p>Memuat Mystery Box...</p>
 
-</div>
+<div class="logo">
 
-<!--=====================================
-    PARTICLE BACKGROUND
-======================================-->
-
-<div id="particles"></div>
-
-<!--=====================================
-    HERO
-======================================-->
-
-<header class="hero">
-
-<div class="overlay"></div>
-
-<div class="hero-content">
-
-    <img src="images/logo.png" class="logo">
-
-    <h1>
-        Mystery Box
-    </h1>
-
-    <p>
-
-        Masukkan kode promo dan buka Mystery Box
-        untuk mendapatkan hadiah hingga
-
-        <span>Rp2.000.000</span>
-
-    </p>
-
-    <button id="openPromo">
-
-        <i class="fa-solid fa-gift"></i>
-
-        Buka Mystery Box
-
-    </button>
+🎁 MYSTERY BOX
 
 </div>
+
+
+
+<nav>
+
+
+<a href="index.html" class="active">
+
+🏠 Home
+
+</a>
+
+
+<a href="mystery-box.html">
+
+🎁 Mystery Box
+
+</a>
+
+
+
+<a href="aktivitas.html">
+
+🏆 Aktivitas
+
+</a>
+
+
+</nav>
+
 
 </header>
 
-<!--=====================================
-    MYSTERY BOX
-======================================-->
 
-<section class="box-section">
 
-<div class="box-container">
 
-    <div id="mysteryBox">
 
-        <img src="images/box.png" alt="Mystery Box">
 
-    </div>
 
-</div>
+<!-- =====================
+HERO HOME
+===================== -->
 
-</section>
 
-<!--=====================================
-    PROMO MODAL
-======================================-->
+<section class="home-hero">
 
-<div id="promoModal" class="modal">
 
-<div class="modal-content">
 
-    <span class="closeModal">&times;</span>
+<div class="hero-overlay"></div>
 
-    <h2>
 
-        Masukkan Kode Promo
 
-    </h2>
+<div class="hero-content">
 
-    <p>
 
-        Masukkan kode promo untuk membuka Mystery Box.
 
-    </p>
+<div class="premium-badge">
 
-    <input
-    type="text"
-    id="promoCode"
-    placeholder="Masukkan kode promo">
-
-    <button id="submitPromo">
-
-        Buka Sekarang
-
-    </button>
-
-    <small id="promoMessage"></small>
+✨ PREMIUM EVENT 2026
 
 </div>
 
-</div>
 
-<!--=====================================
-    COUNTDOWN
-======================================-->
 
-<section id="countdownSection">
 
-<h2>
+<h1>
 
-Membuka Mystery Box
+Buka
 
-</h2>
+<span>
+Mystery Box
+</span>
 
-<div id="countdown">
+<br>
 
-3
+Dapatkan Hadiah Eksklusif
 
-</div>
+</h1>
 
-</section>
 
-<!--=====================================
-    REWARD
-======================================-->
-
-<section id="rewardSection">
-
-<div class="reward-card">
-
-    <h3>
-
-        🎉 Selamat!
-
-    </h3>
-
-    <p>
-
-        Anda mendapatkan hadiah
-
-    </p>
-
-    <h1 id="rewardAmount">
-
-        Rp0
-
-    </h1>
-
-    <span id="rewardTier">
-
-        Common
-
-    </span>
-
-    <p class="reward-text">
-
-        Selamat!
-        Anda berhasil mendapatkan hadiah Mystery Box.
-
-        Klik tombol Claim Hadiah
-        untuk melanjutkan proses klaim.
-
-    </p>
-
-    <button id="claimReward">
-
-        Claim Hadiah
-
-    </button>
-
-</div>
-
-</section>
-
-<!--=====================================
-    ACTIVITY FEED
-======================================-->
-
-<section class="activity">
-
-<h2>
-
-Aktivitas Terbaru
-
-</h2>
-
-<div id="activityFeed">
-
-<!-- Javascript -->
-
-</div>
-
-<p class="activity-note">
-
-Aktivitas yang ditampilkan merupakan simulasi
-untuk demonstrasi antarmuka hingga tersedia
-data klaim aktual.
-
-</p>
-
-</section>
-
-<!--=====================================
-    FOOTER
-======================================-->
-
-<footer>
 
 <p>
 
-© 2026 Mystery Box
+Rasakan pengalaman membuka Mystery Box
+dengan animasi premium dan hadiah menarik.
 
 </p>
 
+
+
+
+<div class="hero-buttons">
+
+
+<a href="mystery-box.html" 
+class="btn gold-btn">
+
+
+🎁 Buka Mystery Box
+
+
+</a>
+
+
+
+<a href="aktivitas.html"
+class="btn outline-btn">
+
+
+🏆 Lihat Aktivitas
+
+
+</a>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- =====================
+FEATURE SECTION
+===================== -->
+
+
+<section class="features">
+
+
+
+<h2>
+
+Kenapa Pilih Mystery Box?
+
+</h2>
+
+
+
+
+<div class="feature-container">
+
+
+
+<div class="feature-card">
+
+
+<div class="feature-icon">
+
+🎁
+
+</div>
+
+
+<h3>
+
+Hadiah Acak
+
+</h3>
+
+
+<p>
+
+Kesempatan mendapatkan hadiah
+dengan sistem random generator.
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="feature-card">
+
+
+<div class="feature-icon">
+
+⚡
+
+</div>
+
+
+<h3>
+
+Animasi Premium
+
+</h3>
+
+
+<p>
+
+Efek box 3D, glow emas,
+dan confetti saat hadiah muncul.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+<div class="feature-card">
+
+
+<div class="feature-icon">
+
+🔒
+
+</div>
+
+
+<h3>
+
+Mudah & Cepat
+
+</h3>
+
+
+<p>
+
+Masukkan kode promo dan buka
+Mystery Box dalam hitungan detik.
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+<!-- =====================
+HOW TO PLAY
+===================== -->
+
+
+<section class="how-section">
+
+
+<h2>
+
+Cara Bermain
+
+</h2>
+
+
+
+
+<div class="step-container">
+
+
+
+<div class="step-card">
+
+<span>
+1
+</span>
+
+<h3>
+Masukkan Kode
+</h3>
+
+<p>
+Gunakan kode promo yang tersedia.
+</p>
+
+</div>
+
+
+
+
+
+<div class="step-card">
+
+<span>
+2
+</span>
+
+<h3>
+Buka Box
+</h3>
+
+<p>
+Tunggu animasi pengundian hadiah.
+</p>
+
+</div>
+
+
+
+
+
+<div class="step-card">
+
+<span>
+3
+</span>
+
+<h3>
+Claim Hadiah
+</h3>
+
+<p>
+Klik tombol claim untuk melanjutkan.
+</p>
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+<!-- =====================
+CTA SECTION
+===================== -->
+
+
+<section class="cta-box">
+
+
+
+<h2>
+
+Siap Membuka Mystery Box?
+
+</h2>
+
+
+
+<p>
+
+Jangan lewatkan kesempatan mendapatkan hadiah menarik.
+
+</p>
+
+
+
+<a href="mystery-box.html"
+class="btn gold-btn">
+
+
+Mulai Sekarang 🎁
+
+
+</a>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- =====================
+FOOTER
+===================== -->
+
+
+<footer class="footer">
+
+
+<div class="footer-logo">
+
+🎁 MYSTERY BOX
+
+</div>
+
+
+
+<p>
+
+Pengalaman Mystery Box Premium 2026
+
+</p>
+
+
+
+<div class="footer-menu">
+
+
+<a href="index.html">
+
+Home
+
+</a>
+
+
+<a href="mystery-box.html">
+
+Mystery Box
+
+</a>
+
+
+<a href="aktivitas.html">
+
+Aktivitas
+
+</a>
+
+
+</div>
+
+
+
+<p class="copyright">
+
+© 2026 Mystery Box. All Rights Reserved.
+
+</p>
+
+
+
 </footer>
 
-<!--=====================================
-    CONFETTI
-======================================-->
 
-<canvas id="confetti"></canvas>
 
-<!--=====================================
-    AUDIO
-======================================-->
 
-<audio id="openSound">
 
-<source src="audio/open.mp3" type="audio/mpeg">
 
-</audio>
 
-<audio id="winSound">
 
-<source src="audio/win.mp3" type="audio/mpeg">
 
-</audio>
-
-<!--=====================================
-    JAVASCRIPT
-======================================-->
+<!-- JAVASCRIPT GLOBAL -->
 
 <script src="script.js"></script>
 
+
+
 </body>
+
 </html>
