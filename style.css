@@ -1,0 +1,4083 @@
+/* ===========================================================
+   MYSTERY BOX WEBSITE
+   STYLE.CSS
+   PART 1A-1
+   Reset • Root • Body • Typography • Scrollbar
+=========================================================== */
+
+/* ==========================
+   GOOGLE FONT
+========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* ==========================
+   RESET CSS
+========================== */
+
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+    -webkit-text-size-adjust:100%;
+}
+
+body{
+    min-height:100vh;
+}
+
+img{
+    display:block;
+    max-width:100%;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button,
+input{
+    border:none;
+    outline:none;
+    font-family:inherit;
+}
+
+button{
+    cursor:pointer;
+    background:none;
+}
+
+ul{
+    list-style:none;
+}
+
+/* ==========================
+   ROOT VARIABLES
+========================== */
+
+:root{
+
+    /* ===== COLORS ===== */
+
+    --gold:#FFD700;
+    --gold-light:#FFE88A;
+    --gold-dark:#D4AF37;
+
+    --white:#ffffff;
+    --black:#000000;
+
+    --bg-dark:#070707;
+    --bg-card:#111111;
+    --bg-card-2:#181818;
+
+    --text:#F8F8F8;
+    --text-muted:#B5B5B5;
+
+    --success:#2ECC71;
+    --danger:#E74C3C;
+
+    /* ===== GRADIENT ===== */
+
+    --gold-gradient:
+    linear-gradient(
+        135deg,
+        #FFD700,
+        #FFE88A,
+        #D4AF37
+    );
+
+    --dark-gradient:
+    linear-gradient(
+        180deg,
+        #050505,
+        #0F0F0F,
+        #181818
+    );
+
+    /* ===== SHADOW ===== */
+
+    --shadow-gold:
+    0 0 10px rgba(255,215,0,.35),
+    0 0 20px rgba(255,215,0,.25),
+    0 0 35px rgba(255,215,0,.15);
+
+    --shadow-dark:
+    0 15px 35px rgba(0,0,0,.45);
+
+    /* ===== BORDER ===== */
+
+    --border-gold:
+    1px solid rgba(255,215,0,.25);
+
+    --border-light:
+    1px solid rgba(255,255,255,.08);
+
+    /* ===== RADIUS ===== */
+
+    --radius-sm:8px;
+    --radius-md:16px;
+    --radius-lg:24px;
+    --radius-xl:32px;
+    --radius-full:999px;
+
+    /* ===== TRANSITION ===== */
+
+    --transition:
+    .35s ease;
+
+    /* ===== MAX WIDTH ===== */
+
+    --container:1200px;
+
+}
+
+/* ==========================
+   BODY
+========================== */
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    color:var(--text);
+
+    background:var(--bg-dark);
+
+    overflow-x:hidden;
+
+    position:relative;
+
+    line-height:1.7;
+
+    letter-spacing:.2px;
+
+    -webkit-font-smoothing:antialiased;
+
+    text-rendering:optimizeLegibility;
+
+}
+
+/* ==========================
+   TYPOGRAPHY
+========================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+
+    font-weight:700;
+
+    line-height:1.2;
+
+    color:var(--white);
+
+}
+
+h1{
+
+    font-size:clamp(2.5rem,6vw,4.5rem);
+
+}
+
+h2{
+
+    font-size:clamp(2rem,5vw,3.2rem);
+
+}
+
+h3{
+
+    font-size:1.8rem;
+
+}
+
+p{
+
+    color:var(--text-muted);
+
+    font-size:1rem;
+
+}
+
+small{
+
+    color:#999;
+
+}
+
+strong{
+
+    color:var(--gold);
+
+}
+
+/* ==========================
+   TEXT SELECTION
+========================== */
+
+::selection{
+
+    background:var(--gold);
+
+    color:#000;
+
+}
+
+::-moz-selection{
+
+    background:var(--gold);
+
+    color:#000;
+
+}
+
+/* ==========================
+   PREMIUM SCROLLBAR
+========================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#0B0B0B;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:linear-gradient(
+        to bottom,
+        #FFD700,
+        #D4AF37
+    );
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#FFE88A;
+
+}
+
+/* Firefox */
+
+html{
+
+    scrollbar-color:#D4AF37 #0B0B0B;
+
+    scrollbar-width:thin;
+
+}
+
+/* ==========================
+   GLOBAL CONTAINER
+========================== */
+
+.container{
+
+    width:min(
+        var(--container),
+        calc(100% - 40px)
+    );
+
+    margin-inline:auto;
+
+}
+
+/* ==========================
+   SECTION DEFAULT
+========================== */
+
+section{
+
+    position:relative;
+
+    padding:90px 0;
+
+}
+
+/* ==========================
+   HIDDEN
+========================== */
+
+.hidden{
+
+    display:none !important;
+
+}
+
+/* ==========================
+   GOLD TEXT
+========================== */
+
+.text-gold{
+
+    color:var(--gold);
+
+}
+
+/* ==========================
+   CENTER
+========================== */
+
+.text-center{
+
+    text-align:center;
+
+}
+
+/* ==========================================================
+   PART 1A-2
+   BACKGROUND
+   OVERLAY
+   CONTAINER
+   UTILITY CLASS
+   GLASS EFFECT
+========================================================== */
+
+
+/* ==========================================================
+   GLOBAL BACKGROUND
+========================================================== */
+
+body {
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background:
+        radial-gradient(
+            circle at top,
+            rgba(255, 215, 0, 0.12),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at bottom right,
+            rgba(255, 255, 255, 0.08),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #050505,
+            #111111,
+            #000000
+        );
+}
+
+
+/* ==========================================================
+   BACKGROUND IMAGE SUPPORT
+   (Untuk images/bg.jpg)
+========================================================== */
+
+.bg-image {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+
+    background-image:
+        linear-gradient(
+            rgba(0,0,0,0.75),
+            rgba(0,0,0,0.9)
+        ),
+        url("../images/bg.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    z-index: -5;
+}
+
+
+/* ==========================================================
+   GOLD LIGHT EFFECT
+========================================================== */
+
+.gold-light {
+    position: fixed;
+
+    width: 500px;
+    height: 500px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,215,0,0.25),
+            transparent 70%
+        );
+
+    filter: blur(40px);
+
+    animation:
+        floatingLight 8s infinite alternate ease-in-out;
+
+    z-index: -3;
+}
+
+
+.gold-light.top {
+    top: -200px;
+    left: -150px;
+}
+
+
+.gold-light.bottom {
+
+    bottom: -200px;
+    right: -150px;
+
+    animation-delay: 3s;
+
+}
+
+
+/* ==========================================================
+   DARK OVERLAY
+========================================================== */
+
+.page-overlay {
+
+    position: fixed;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.35),
+            rgba(0,0,0,.65)
+        );
+
+    pointer-events:none;
+
+    z-index:-2;
+
+}
+
+
+
+/* ==========================================================
+   PARTICLE BACKGROUND
+========================================================== */
+
+.particle {
+
+    position: absolute;
+
+    width: 6px;
+    height: 6px;
+
+    background:
+        radial-gradient(
+            circle,
+            #ffd700,
+            transparent
+        );
+
+    border-radius:50%;
+
+    opacity:.7;
+
+    animation:
+        particleMove
+        linear
+        infinite;
+
+}
+
+
+
+@keyframes particleMove {
+
+
+    0% {
+
+        transform:
+            translateY(100vh)
+            scale(.5);
+
+        opacity:0;
+
+    }
+
+
+    30% {
+
+        opacity:1;
+
+    }
+
+
+    100% {
+
+        transform:
+            translateY(-120vh)
+            scale(1.3);
+
+        opacity:0;
+
+    }
+
+}
+
+
+
+/* ==========================================================
+   MAIN CONTAINER
+========================================================== */
+
+
+.container {
+
+    width:100%;
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:
+
+        0 25px;
+
+}
+
+
+
+/* ==========================================================
+   SECTION STYLE
+========================================================== */
+
+
+.section {
+
+    position:relative;
+
+    padding:
+
+        80px 0;
+
+}
+
+
+
+/* ==========================================================
+   FLEX UTILITIES
+========================================================== */
+
+
+.flex {
+
+    display:flex;
+
+}
+
+
+.flex-center {
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+
+.flex-between {
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+
+
+.flex-column {
+
+    flex-direction:column;
+
+}
+
+
+
+
+/* ==========================================================
+   GRID UTILITIES
+========================================================== */
+
+
+.grid {
+
+    display:grid;
+
+}
+
+
+
+.grid-center {
+
+    display:grid;
+
+    place-items:center;
+
+}
+
+
+
+
+/* ==========================================================
+   TEXT UTILITIES
+========================================================== */
+
+
+.text-center {
+
+    text-align:center;
+
+}
+
+
+
+.text-gold {
+
+
+    color:#ffd700;
+
+
+}
+
+
+
+.text-white {
+
+    color:#ffffff;
+
+}
+
+
+
+.text-muted {
+
+
+    color:
+
+    rgba(255,255,255,.65);
+
+
+}
+
+
+
+
+/* ==========================================================
+   GOLD GRADIENT TEXT
+========================================================== */
+
+
+.gold-text {
+
+
+    background:
+
+    linear-gradient(
+
+        90deg,
+
+        #fff3a0,
+
+        #ffd700,
+
+        #ffae00
+
+    );
+
+
+    -webkit-background-clip:text;
+
+    background-clip:text;
+
+
+    color:transparent;
+
+
+}
+
+
+
+
+/* ==========================================================
+   GLASS CARD EFFECT
+========================================================== */
+
+
+.glass {
+
+
+    background:
+
+    rgba(255,255,255,.06);
+
+
+    border:
+
+    1px solid
+
+    rgba(255,215,0,.25);
+
+
+
+    backdrop-filter:
+
+    blur(15px);
+
+
+
+    -webkit-backdrop-filter:
+
+    blur(15px);
+
+
+
+    box-shadow:
+
+    0 10px 40px
+
+    rgba(0,0,0,.5);
+
+
+
+}
+
+
+
+/* ==========================================================
+   PREMIUM CARD
+========================================================== */
+
+
+.premium-card {
+
+
+    position:relative;
+
+
+    overflow:hidden;
+
+
+
+    border-radius:25px;
+
+
+
+    background:
+
+
+    linear-gradient(
+
+        145deg,
+
+        rgba(255,255,255,.10),
+
+        rgba(255,255,255,.03)
+
+    );
+
+
+
+    border:
+
+    1px solid
+
+    rgba(255,215,0,.3);
+
+
+
+    box-shadow:
+
+
+    0 0 30px
+
+    rgba(255,215,0,.12);
+
+
+
+}
+
+
+
+/* ==========================================================
+   GOLD BORDER ANIMATION
+========================================================== */
+
+
+.gold-border {
+
+
+    position:relative;
+
+
+}
+
+
+
+.gold-border::before {
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+    inset:0;
+
+
+    border-radius:inherit;
+
+
+    padding:1px;
+
+
+
+    background:
+
+
+    linear-gradient(
+
+        90deg,
+
+        transparent,
+
+        #ffd700,
+
+        transparent
+
+    );
+
+
+
+    mask:
+
+    linear-gradient(#fff 0 0)
+
+    content-box,
+
+    linear-gradient(#fff 0 0);
+
+
+
+    mask-composite:
+
+    exclude;
+
+
+
+    animation:
+
+
+    borderMove
+
+    4s linear infinite;
+
+
+
+}
+
+
+
+
+
+@keyframes borderMove {
+
+
+    from {
+
+        transform:
+
+        rotate(0deg);
+
+    }
+
+
+    to {
+
+        transform:
+
+        rotate(360deg);
+
+    }
+
+
+}
+
+
+
+
+/* ==========================================================
+   HIDDEN CLASS
+========================================================== */
+
+
+.hidden {
+
+    display:none !important;
+
+}
+
+
+
+.visible {
+
+    display:block !important;
+
+}
+
+
+
+
+/* ==========================================================
+   SMOOTH TRANSITION
+========================================================== */
+
+
+.smooth {
+
+    transition:
+
+    all .35s ease;
+
+}
+
+
+
+
+/* ==========================================================
+   FLOATING ANIMATION
+========================================================== */
+
+
+@keyframes floatingLight {
+
+
+    0% {
+
+        transform:
+
+        translateY(0)
+        scale(1);
+
+    }
+
+
+
+    100% {
+
+        transform:
+
+        translateY(50px)
+        scale(1.15);
+
+    }
+
+
+}
+
+/* =====================================================
+   PART 1A-3
+   GLOBAL HELPER
+   BUTTON BASE
+   ANIMATION BASE
+   TRANSITION
+===================================================== */
+
+
+/* =====================================================
+   GLOBAL HELPER
+===================================================== */
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+.text-center {
+    text-align: center;
+}
+
+
+.flex {
+    display: flex;
+}
+
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.grid {
+    display: grid;
+}
+
+
+.hidden {
+    display: none !important;
+}
+
+
+.visible {
+    display: block !important;
+}
+
+
+.no-select {
+    user-select: none;
+}
+
+
+.pointer {
+    cursor: pointer;
+}
+
+
+.relative {
+    position: relative;
+}
+
+
+.absolute {
+    position: absolute;
+}
+
+
+
+/* =====================================================
+   PREMIUM GLASS EFFECT
+===================================================== */
+
+.glass {
+    background: rgba(255,255,255,0.08);
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    box-shadow:
+        0 10px 40px rgba(0,0,0,0.4);
+}
+
+
+.gold-border {
+
+    border: 1px solid var(--gold-primary);
+
+    box-shadow:
+        0 0 10px rgba(255,215,0,0.5),
+        inset 0 0 10px rgba(255,215,0,0.2);
+
+}
+
+
+
+/* =====================================================
+   TEXT EFFECT
+===================================================== */
+
+
+.gold-text {
+
+    background:
+    linear-gradient(
+        90deg,
+        #fff2a8,
+        #ffd700,
+        #fff5b0
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+}
+
+
+.glow-text {
+
+    text-shadow:
+        0 0 5px rgba(255,215,0,.7),
+        0 0 15px rgba(255,215,0,.5),
+        0 0 30px rgba(255,215,0,.3);
+
+}
+
+
+
+/* =====================================================
+   BUTTON BASE
+===================================================== */
+
+
+.btn {
+
+    position:relative;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+
+    padding:14px 35px;
+
+
+    border:none;
+
+    outline:none;
+
+
+    font-family:inherit;
+
+    font-size:15px;
+
+    font-weight:700;
+
+
+    border-radius:50px;
+
+
+    cursor:pointer;
+
+
+    transition:
+    transform .3s ease,
+    box-shadow .3s ease,
+    background .3s ease;
+
+
+    overflow:hidden;
+
+}
+
+
+
+.btn:hover {
+
+    transform:
+    translateY(-3px);
+
+}
+
+
+
+.btn:active {
+
+    transform:
+    scale(.96);
+
+}
+
+
+
+/* =====================================================
+   GOLD BUTTON
+===================================================== */
+
+
+.btn-gold {
+
+
+    color:#111;
+
+
+    background:
+    linear-gradient(
+        135deg,
+        #fff3a3,
+        #ffd700,
+        #b8860b
+    );
+
+
+    box-shadow:
+
+    0 0 15px rgba(255,215,0,.5),
+
+    0 10px 30px rgba(0,0,0,.5);
+
+
+}
+
+
+
+.btn-gold:hover {
+
+
+    box-shadow:
+
+    0 0 25px rgba(255,215,0,.9),
+
+    0 15px 40px rgba(255,215,0,.3);
+
+
+}
+
+
+
+/* =====================================================
+   BUTTON SHINE EFFECT
+===================================================== */
+
+
+.btn::before {
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+    top:0;
+
+    left:-100%;
+
+
+    width:70%;
+
+
+    height:100%;
+
+
+    background:
+
+    linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.8),
+        transparent
+    );
+
+
+    transform:
+    skewX(-25deg);
+
+
+    transition:.7s;
+
+
+}
+
+
+
+.btn:hover::before {
+
+
+    left:130%;
+
+
+}
+
+
+
+
+/* =====================================================
+   OUTLINE BUTTON
+===================================================== */
+
+
+.btn-outline {
+
+
+    color:white;
+
+
+    background:
+    transparent;
+
+
+    border:
+
+    1px solid var(--gold-primary);
+
+
+
+}
+
+
+
+.btn-outline:hover {
+
+
+    background:
+
+    rgba(255,215,0,.15);
+
+
+    box-shadow:
+
+    0 0 20px rgba(255,215,0,.5);
+
+
+}
+
+
+
+
+/* =====================================================
+   LOADING EFFECT
+===================================================== */
+
+
+.loading {
+
+
+    width:35px;
+
+    height:35px;
+
+
+    border-radius:50%;
+
+
+    border:
+
+    4px solid rgba(255,255,255,.2);
+
+
+    border-top-color:
+
+    var(--gold-primary);
+
+
+
+    animation:
+
+    spin 1s linear infinite;
+
+
+}
+
+
+
+
+/* =====================================================
+   ANIMATION BASE
+===================================================== */
+
+
+.fade-in {
+
+
+    animation:
+
+    fadeIn .8s ease forwards;
+
+
+}
+
+
+
+.fade-up {
+
+
+    animation:
+
+    fadeUp .8s ease forwards;
+
+
+}
+
+
+
+.scale-in {
+
+
+    animation:
+
+    scaleIn .5s ease forwards;
+
+
+}
+
+
+
+.slide-left {
+
+
+    animation:
+
+    slideLeft .8s ease forwards;
+
+
+}
+
+
+
+.slide-right {
+
+
+    animation:
+
+    slideRight .8s ease forwards;
+
+
+}
+
+
+
+
+/* =====================================================
+   KEYFRAME GLOBAL
+===================================================== */
+
+
+@keyframes fadeIn {
+
+
+    from {
+
+        opacity:0;
+
+    }
+
+
+    to {
+
+        opacity:1;
+
+    }
+
+
+}
+
+
+
+@keyframes fadeUp {
+
+
+    from {
+
+
+        opacity:0;
+
+        transform:
+
+        translateY(40px);
+
+
+    }
+
+
+    to {
+
+
+        opacity:1;
+
+        transform:
+
+        translateY(0);
+
+
+    }
+
+
+}
+
+
+
+
+@keyframes scaleIn {
+
+
+    from {
+
+
+        opacity:0;
+
+        transform:
+
+        scale(.7);
+
+
+    }
+
+
+    to {
+
+
+        opacity:1;
+
+        transform:
+
+        scale(1);
+
+
+    }
+
+
+}
+
+
+
+
+@keyframes slideLeft {
+
+
+    from {
+
+
+        opacity:0;
+
+        transform:
+
+        translateX(50px);
+
+
+    }
+
+
+    to {
+
+
+        opacity:1;
+
+        transform:
+
+        translateX(0);
+
+
+    }
+
+
+}
+
+
+
+
+@keyframes slideRight {
+
+
+    from {
+
+
+        opacity:0;
+
+        transform:
+
+        translateX(-50px);
+
+
+    }
+
+
+    to {
+
+
+        opacity:1;
+
+        transform:
+
+        translateX(0);
+
+
+    }
+
+
+}
+
+
+
+
+
+@keyframes spin {
+
+
+    from {
+
+
+        transform:
+
+        rotate(0deg);
+
+
+    }
+
+
+    to {
+
+
+        transform:
+
+        rotate(360deg);
+
+
+    }
+
+
+}
+
+
+
+/* =====================================================
+   FLOAT ANIMATION
+===================================================== */
+
+
+.float {
+
+
+    animation:
+
+    float 4s ease-in-out infinite;
+
+
+}
+
+
+
+@keyframes float {
+
+
+    0%,
+    100% {
+
+
+        transform:
+
+        translateY(0);
+
+
+    }
+
+
+    50% {
+
+
+        transform:
+
+        translateY(-15px);
+
+
+    }
+
+
+}
+
+
+
+/* =====================================================
+   PULSE GLOW
+===================================================== */
+
+
+.pulse {
+
+
+    animation:
+
+    pulseGlow 2s infinite;
+
+
+}
+
+
+
+@keyframes pulseGlow {
+
+
+    0% {
+
+
+        box-shadow:
+
+        0 0 0 rgba(255,215,0,0);
+
+
+    }
+
+
+    50% {
+
+
+        box-shadow:
+
+        0 0 35px rgba(255,215,0,.8);
+
+
+    }
+
+
+    100% {
+
+
+        box-shadow:
+
+        0 0 0 rgba(255,215,0,0);
+
+
+    }
+
+
+}
+
+
+
+/* =====================================================
+   SMOOTH TRANSITION
+===================================================== */
+
+
+.transition {
+
+    transition:
+
+    all .3s ease;
+
+}
+
+
+.smooth {
+
+    transition:
+
+    .5s cubic-bezier(
+        .25,
+        .8,
+        .25,
+        1
+    );
+
+}
+
+/* =====================================================
+   HEADER SECTION
+===================================================== */
+
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    padding: 20px 8%;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 215, 0, 0.15);
+}
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* LOGO */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+
+.logo img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 15px rgba(255,215,0,.8));
+}
+
+
+.logo-text {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+
+.logo-text span {
+    color: var(--gold);
+}
+
+
+/* NAVIGATION */
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+
+.nav-menu a {
+
+    text-decoration: none;
+    color: #fff;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    transition: .3s ease;
+
+    position: relative;
+}
+
+
+
+.nav-menu a::after {
+
+    content:"";
+
+    position:absolute;
+
+    width:0%;
+    height:2px;
+
+    left:0;
+    bottom:-8px;
+
+    background: var(--gold);
+
+    transition:.3s ease;
+
+}
+
+
+
+.nav-menu a:hover {
+
+    color:var(--gold);
+
+}
+
+
+
+.nav-menu a:hover::after {
+
+    width:100%;
+
+}
+
+
+
+/* MOBILE MENU BUTTON */
+
+.menu-btn {
+
+    display:none;
+
+    width:42px;
+    height:42px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(255,215,0,.4);
+
+    background:rgba(255,255,255,.05);
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:22px;
+
+}
+
+
+
+/* =====================================================
+   HERO SECTION
+===================================================== */
+
+
+.hero {
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:150px 8% 80px;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+
+
+/* HERO LIGHT EFFECT */
+
+.hero::before {
+
+    content:"";
+
+    position:absolute;
+
+    width:600px;
+
+    height:600px;
+
+    background:radial-gradient(
+        circle,
+        rgba(255,215,0,.25),
+        transparent 70%
+    );
+
+    top:10%;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    filter:blur(40px);
+
+    animation:pulseGlow 5s infinite alternate;
+
+}
+
+
+
+@keyframes pulseGlow {
+
+
+    from {
+
+        opacity:.5;
+        transform:translateX(-50%) scale(1);
+
+    }
+
+
+    to {
+
+        opacity:1;
+        transform:translateX(-50%) scale(1.2);
+
+    }
+
+
+}
+
+
+
+
+.hero-content {
+
+    position:relative;
+
+    z-index:2;
+
+    max-width:900px;
+
+}
+
+
+
+
+.hero-badge {
+
+
+    display:inline-block;
+
+    padding:8px 22px;
+
+    border-radius:50px;
+
+
+    background:rgba(255,215,0,.12);
+
+
+    border:1px solid rgba(255,215,0,.4);
+
+
+    color:var(--gold);
+
+
+    font-size:14px;
+
+
+    margin-bottom:25px;
+
+
+    animation:floating 3s infinite ease-in-out;
+
+
+}
+
+
+
+
+.hero-title {
+
+
+    font-size:clamp(40px,6vw,75px);
+
+    line-height:1.1;
+
+
+    font-weight:800;
+
+
+    margin-bottom:25px;
+
+
+    background:linear-gradient(
+
+        90deg,
+
+        #fff,
+
+        #ffd700,
+
+        #fff
+
+    );
+
+
+    background-size:200%;
+
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+
+    animation:textShine 4s infinite linear;
+
+
+}
+
+
+
+@keyframes textShine {
+
+
+    from {
+
+        background-position:0%;
+
+    }
+
+
+    to {
+
+        background-position:200%;
+
+    }
+
+}
+
+
+
+
+.hero-description {
+
+
+    max-width:650px;
+
+
+    margin:auto;
+
+
+    color:#ddd;
+
+
+    font-size:18px;
+
+
+    line-height:1.8;
+
+
+}
+
+
+
+
+/* =====================================================
+   HERO BUTTON
+===================================================== */
+
+
+.hero-button {
+
+
+    margin-top:40px;
+
+
+    display:inline-flex;
+
+
+    align-items:center;
+
+    justify-content:center;
+
+
+    gap:10px;
+
+
+    padding:16px 45px;
+
+
+    border-radius:50px;
+
+
+    background:linear-gradient(
+
+        135deg,
+
+        #ffd700,
+
+        #ff9900
+
+    );
+
+
+    color:#000;
+
+
+    font-size:17px;
+
+
+    font-weight:700;
+
+
+    text-decoration:none;
+
+
+    border:none;
+
+
+    cursor:pointer;
+
+
+    box-shadow:
+
+
+    0 0 20px rgba(255,215,0,.5),
+
+    inset 0 0 10px rgba(255,255,255,.5);
+
+
+    transition:.4s ease;
+
+
+    position:relative;
+
+
+    overflow:hidden;
+
+
+}
+
+
+
+
+.hero-button::before {
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+    top:0;
+
+
+    left:-100%;
+
+
+    width:100%;
+
+
+    height:100%;
+
+
+    background:linear-gradient(
+
+        120deg,
+
+        transparent,
+
+        rgba(255,255,255,.7),
+
+        transparent
+
+    );
+
+
+    transition:.6s;
+
+
+}
+
+
+
+
+.hero-button:hover::before {
+
+
+    left:100%;
+
+
+}
+
+
+
+.hero-button:hover {
+
+
+    transform:translateY(-5px) scale(1.05);
+
+
+    box-shadow:
+
+    0 0 40px rgba(255,215,0,.9);
+
+
+}
+
+
+
+
+/* =====================================================
+   FLOATING ANIMATION
+===================================================== */
+
+
+@keyframes floating {
+
+
+    0% {
+
+        transform:translateY(0);
+
+    }
+
+
+    50% {
+
+        transform:translateY(-12px);
+
+    }
+
+
+    100% {
+
+        transform:translateY(0);
+
+    }
+
+
+}
+
+
+
+
+/* =====================================================
+   RESPONSIVE TABLET
+===================================================== */
+
+
+@media(max-width:900px){
+
+
+.header{
+
+    padding:20px 5%;
+
+}
+
+
+.nav-menu{
+
+    display:none;
+
+}
+
+
+.menu-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+
+
+.hero{
+
+    padding-left:5%;
+    padding-right:5%;
+
+}
+
+
+
+.hero-description{
+
+    font-size:16px;
+
+}
+
+
+
+}
+
+
+
+/* =====================================================
+   RESPONSIVE MOBILE
+===================================================== */
+
+
+@media(max-width:600px){
+
+
+
+.logo-text{
+
+    font-size:20px;
+
+}
+
+
+.logo img{
+
+    width:38px;
+
+    height:38px;
+
+}
+
+
+
+.hero-title{
+
+    font-size:38px;
+
+}
+
+
+
+.hero-description{
+
+    font-size:15px;
+
+}
+
+
+
+.hero-button{
+
+    width:100%;
+
+    padding:15px;
+
+}
+
+
+
+}
+
+/* =====================================================
+   PART 2
+   MYSTERY BOX
+   PROMO MODAL
+   COUNTDOWN
+   REWARD CARD
+===================================================== */
+
+
+/* =====================================================
+   MYSTERY BOX SECTION
+===================================================== */
+
+.mystery-section {
+    width: 100%;
+    min-height: 650px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px;
+    position: relative;
+}
+
+
+.mystery-container {
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+
+/* Title */
+
+.mystery-title {
+    font-size: 36px;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+
+.mystery-title span {
+    color: #ffd700;
+    text-shadow:
+        0 0 10px #ffd700,
+        0 0 30px #ffb700;
+}
+
+
+.mystery-description {
+
+    color: rgba(255,255,255,0.7);
+    font-size: 16px;
+    margin-bottom: 40px;
+
+}
+
+
+
+/* =====================================================
+   BOX 3D
+===================================================== */
+
+
+.box-wrapper {
+
+    position: relative;
+    width: 230px;
+    height: 230px;
+    margin: auto;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    perspective:1000px;
+
+}
+
+
+.mystery-box {
+
+
+    width:160px;
+    height:130px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #ffd700,
+        #b88600
+    );
+
+    border-radius:15px;
+
+    position:relative;
+
+    cursor:pointer;
+
+    box-shadow:
+
+    0 20px 40px rgba(0,0,0,.5),
+    0 0 40px rgba(255,215,0,.5);
+
+
+    transform-style:preserve-3d;
+
+    transition:.5s ease;
+
+}
+
+
+
+/* box top */
+
+.mystery-box::before {
+
+
+    content:"";
+
+    position:absolute;
+
+    width:170px;
+
+    height:45px;
+
+    top:-35px;
+
+    left:-5px;
+
+
+    background:
+
+    linear-gradient(
+    135deg,
+    #ffe66d,
+    #d4a000
+    );
+
+
+    border-radius:12px;
+
+
+    box-shadow:
+
+    inset 0 -10px 15px rgba(0,0,0,.25);
+
+
+}
+
+
+
+
+/* ribbon */
+
+.box-ribbon {
+
+
+    position:absolute;
+
+    width:30px;
+
+    height:100%;
+
+    background:#fff4a3;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+}
+
+
+.box-ribbon::after {
+
+
+    content:"";
+
+    position:absolute;
+
+    height:30px;
+
+    width:100%;
+
+    background:#fff4a3;
+
+    top:50%;
+
+}
+
+
+
+/* Hover */
+
+
+.mystery-box:hover {
+
+
+    transform:
+
+    translateY(-15px)
+
+    rotateX(15deg);
+
+
+}
+
+
+
+/* Shake animation */
+
+.box-shake {
+
+
+    animation:
+
+    shakeBox .6s infinite;
+
+
+}
+
+
+
+@keyframes shakeBox {
+
+
+0%{
+transform:rotate(0);
+}
+
+
+20%{
+transform:rotate(8deg);
+}
+
+
+40%{
+transform:rotate(-8deg);
+}
+
+
+60%{
+transform:rotate(6deg);
+}
+
+
+80%{
+transform:rotate(-6deg);
+}
+
+
+100%{
+transform:rotate(0);
+}
+
+
+}
+
+
+
+/* Opening */
+
+.box-open {
+
+
+animation:
+
+openBox 1.5s forwards;
+
+
+}
+
+
+
+@keyframes openBox {
+
+
+0%{
+
+transform:
+rotateX(0)
+scale(1);
+
+}
+
+
+50%{
+
+transform:
+rotateX(-30deg)
+scale(1.15);
+
+}
+
+
+100%{
+
+transform:
+translateY(-80px)
+scale(.8);
+
+opacity:0;
+
+}
+
+
+}
+
+
+
+
+/* =====================================================
+   BUTTON
+===================================================== */
+
+
+.main-button {
+
+
+margin-top:40px;
+
+
+padding:
+
+15px 45px;
+
+
+border:none;
+
+
+border-radius:50px;
+
+
+font-size:17px;
+
+
+font-weight:700;
+
+
+cursor:pointer;
+
+
+color:#111;
+
+
+background:
+
+linear-gradient(
+45deg,
+#ffd700,
+#fff2a6
+);
+
+
+box-shadow:
+
+
+0 0 20px rgba(255,215,0,.5);
+
+
+
+transition:.3s;
+
+
+}
+
+
+
+.main-button:hover{
+
+
+transform:
+
+translateY(-5px)
+scale(1.05);
+
+
+box-shadow:
+
+
+0 0 40px gold;
+
+
+}
+
+
+
+
+/* =====================================================
+   PROMO MODAL
+===================================================== */
+
+
+.promo-modal {
+
+
+position:fixed;
+
+inset:0;
+
+background:
+
+rgba(0,0,0,.75);
+
+
+display:none;
+
+justify-content:center;
+
+align-items:center;
+
+
+z-index:999;
+
+
+
+backdrop-filter:blur(8px);
+
+
+}
+
+
+
+.promo-modal.active{
+
+
+display:flex;
+
+
+}
+
+
+
+.promo-box {
+
+
+width:90%;
+
+max-width:420px;
+
+
+background:
+
+rgba(255,255,255,.08);
+
+
+border:
+
+1px solid rgba(255,215,0,.4);
+
+
+border-radius:25px;
+
+
+padding:35px;
+
+
+text-align:center;
+
+
+box-shadow:
+
+
+0 0 50px rgba(255,215,0,.3);
+
+
+
+animation:
+
+modalShow .5s;
+
+
+}
+
+
+
+@keyframes modalShow{
+
+
+from{
+
+opacity:0;
+
+transform:
+
+translateY(50px)
+scale(.8);
+
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:
+
+translateY(0)
+scale(1);
+
+
+}
+
+
+}
+
+
+
+.promo-input {
+
+
+width:100%;
+
+
+padding:15px;
+
+
+border-radius:12px;
+
+
+border:none;
+
+
+outline:none;
+
+
+margin:
+
+20px 0;
+
+
+font-size:16px;
+
+
+text-align:center;
+
+
+}
+
+
+
+.promo-input:focus{
+
+
+box-shadow:
+
+0 0 15px gold;
+
+
+}
+
+
+
+/* =====================================================
+   COUNTDOWN
+===================================================== */
+
+
+.countdown {
+
+
+display:none;
+
+
+margin-top:30px;
+
+
+}
+
+
+
+.countdown.active{
+
+
+display:block;
+
+
+}
+
+
+
+.count-number {
+
+
+font-size:80px;
+
+
+font-weight:900;
+
+
+color:#ffd700;
+
+
+text-shadow:
+
+
+0 0 20px gold;
+
+
+animation:
+
+countPulse 1s infinite;
+
+
+}
+
+
+
+@keyframes countPulse{
+
+
+50%{
+
+
+transform:scale(1.2);
+
+
+}
+
+
+}
+
+
+
+
+/* =====================================================
+   REWARD CARD
+===================================================== */
+
+
+.reward-card {
+
+
+display:none;
+
+
+margin-top:40px;
+
+
+padding:35px;
+
+
+border-radius:25px;
+
+
+background:
+
+
+rgba(255,255,255,.08);
+
+
+border:
+
+1px solid rgba(255,215,0,.5);
+
+
+
+animation:
+
+rewardShow .8s;
+
+
+
+}
+
+
+
+.reward-card.active{
+
+
+display:block;
+
+
+}
+
+
+
+@keyframes rewardShow{
+
+
+from{
+
+opacity:0;
+
+transform:
+
+scale(.5)
+rotateY(90deg);
+
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:
+
+scale(1)
+rotateY(0);
+
+
+}
+
+
+}
+
+
+
+
+.reward-title {
+
+
+font-size:20px;
+
+color:white;
+
+margin-bottom:15px;
+
+
+}
+
+
+
+.reward-money {
+
+
+font-size:50px;
+
+
+font-weight:900;
+
+
+color:#ffd700;
+
+
+text-shadow:
+
+
+0 0 20px gold,
+0 0 50px orange;
+
+
+
+}
+
+
+
+.reward-message {
+
+
+margin-top:20px;
+
+
+color:white;
+
+
+line-height:1.6;
+
+
+}
+
+
+
+/* Jackpot Effect */
+
+
+.reward-card.jackpot {
+
+
+animation:
+
+jackpotGlow 1s infinite alternate;
+
+
+}
+
+
+
+@keyframes jackpotGlow{
+
+
+from{
+
+
+box-shadow:
+
+0 0 20px gold;
+
+
+}
+
+
+to{
+
+
+box-shadow:
+
+0 0 70px gold;
+
+
+}
+
+
+}
+
+
+
+
+
+/* =====================================================
+   MOBILE RESPONSIVE
+===================================================== */
+
+
+@media(max-width:600px){
+
+
+
+.mystery-title{
+
+font-size:28px;
+
+}
+
+
+
+.box-wrapper{
+
+width:190px;
+
+height:190px;
+
+}
+
+
+
+.mystery-box{
+
+width:140px;
+
+height:110px;
+
+}
+
+
+
+.reward-money{
+
+font-size:38px;
+
+}
+
+
+
+.count-number{
+
+font-size:60px;
+
+}
+
+
+
+}
+
+/* ==========================================================
+   PART 3
+   ACTIVITY FEED
+   FOOTER
+   CONFETTI
+   PARTICLE
+   FINAL ANIMATION
+   RESPONSIVE
+========================================================== */
+
+
+/* ==========================================================
+   ACTIVITY CLAIM SECTION
+========================================================== */
+
+.activity-section {
+    width: 100%;
+    max-width: 900px;
+    margin: 80px auto;
+    padding: 30px;
+}
+
+
+.activity-title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    color: #ffd700;
+    margin-bottom: 30px;
+    text-shadow:
+        0 0 10px rgba(255,215,0,.7);
+}
+
+
+.activity-box {
+
+    background:
+    rgba(255,255,255,.06);
+
+    backdrop-filter: blur(15px);
+
+    border:1px solid rgba(255,215,0,.25);
+
+    border-radius:25px;
+
+    padding:25px;
+
+    box-shadow:
+    0 0 30px rgba(255,215,0,.15);
+
+    overflow:hidden;
+}
+
+
+/* ITEM */
+
+.activity-item {
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:15px;
+
+    padding:18px;
+
+    margin-bottom:15px;
+
+    border-radius:18px;
+
+    background:
+    rgba(0,0,0,.35);
+
+    border:
+    1px solid rgba(255,255,255,.08);
+
+    animation:
+    slideActivity .5s ease;
+
+    transition:.3s;
+
+}
+
+
+.activity-item:hover {
+
+    transform:
+    translateX(8px);
+
+    border-color:#ffd700;
+
+}
+
+
+
+/* ICON */
+
+.activity-icon {
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:
+    linear-gradient(
+    135deg,
+    #ffd700,
+    #ff9900
+    );
+
+    color:#111;
+
+    font-size:22px;
+
+    box-shadow:
+    0 0 15px rgba(255,215,0,.8);
+
+}
+
+
+/* TEXT */
+
+
+.activity-info {
+
+    flex:1;
+
+}
+
+
+.activity-name {
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:600;
+
+}
+
+
+.activity-reward {
+
+    color:#ffd700;
+
+    font-size:14px;
+
+    margin-top:5px;
+
+}
+
+
+
+.activity-time {
+
+    font-size:12px;
+
+    color:#aaa;
+
+}
+
+
+
+/* SIMULATION TEXT */
+
+
+.activity-note {
+
+    margin-top:20px;
+
+    text-align:center;
+
+    color:#888;
+
+    font-size:13px;
+
+    line-height:1.6;
+
+}
+
+
+
+
+
+/* ==========================================================
+   JACKPOT SPECIAL EFFECT
+========================================================== */
+
+
+.jackpot {
+
+    animation:
+    jackpotGlow 1.5s infinite alternate;
+
+    border:
+    1px solid #ffd700 !important;
+
+}
+
+
+.jackpot .activity-icon {
+
+    animation:
+
+    crownBounce 1s infinite;
+
+}
+
+
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+
+.footer {
+
+    width:100%;
+
+    padding:40px 20px;
+
+    text-align:center;
+
+    background:
+
+    rgba(0,0,0,.6);
+
+    border-top:
+
+    1px solid rgba(255,215,0,.2);
+
+}
+
+
+
+.footer-logo {
+
+    font-size:28px;
+
+    font-weight:800;
+
+    color:#ffd700;
+
+    text-shadow:
+
+    0 0 15px #ffd700;
+
+}
+
+
+
+.footer-text {
+
+    color:#aaa;
+
+    margin-top:10px;
+
+    font-size:14px;
+
+}
+
+
+
+.footer a {
+
+    color:#ffd700;
+
+    text-decoration:none;
+
+}
+
+
+
+/* ==========================================================
+   CONFETTI SYSTEM
+========================================================== */
+
+
+.confetti {
+
+    position:fixed;
+
+    width:12px;
+
+    height:12px;
+
+    top:-20px;
+
+    z-index:9999;
+
+    pointer-events:none;
+
+    animation:
+
+    confettiFall linear forwards;
+
+}
+
+
+
+.confetti.gold {
+
+    background:#ffd700;
+
+}
+
+
+.confetti.white {
+
+    background:white;
+
+}
+
+
+.confetti.black {
+
+    background:#111;
+
+}
+
+
+
+.confetti:nth-child(odd){
+
+    border-radius:50%;
+
+}
+
+
+
+
+/* ==========================================================
+   BACKGROUND GOLD PARTICLE
+========================================================== */
+
+
+.gold-particle {
+
+
+    position:absolute;
+
+    width:8px;
+
+    height:8px;
+
+    background:#ffd700;
+
+    border-radius:50%;
+
+    opacity:.7;
+
+    box-shadow:
+
+    0 0 15px #ffd700;
+
+
+    animation:
+
+    floatParticle 8s infinite linear;
+
+
+}
+
+
+
+
+/* ==========================================================
+   LOADING EFFECT
+========================================================== */
+
+
+.loading-screen {
+
+    position:fixed;
+
+    inset:0;
+
+    background:#050505;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:99999;
+
+
+}
+
+
+
+.loader {
+
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:50%;
+
+    border:
+
+    5px solid rgba(255,255,255,.1);
+
+    border-top:
+
+    5px solid #ffd700;
+
+
+    animation:
+
+    spin 1s linear infinite;
+
+}
+
+
+
+
+
+/* ==========================================================
+   BUTTON EXTRA EFFECT
+========================================================== */
+
+
+.btn-glow {
+
+
+    animation:
+
+    buttonGlow 2s infinite;
+
+}
+
+
+
+.claim-btn:hover {
+
+
+    transform:
+
+    translateY(-5px)
+    scale(1.05);
+
+
+}
+
+
+
+
+
+/* ==========================================================
+   ANIMATION KEYFRAMES
+========================================================== */
+
+
+
+@keyframes slideActivity {
+
+
+from {
+
+opacity:0;
+
+transform:
+translateY(30px);
+
+}
+
+
+to {
+
+opacity:1;
+
+transform:
+translateY(0);
+
+}
+
+}
+
+
+
+
+
+@keyframes jackpotGlow {
+
+
+from {
+
+box-shadow:
+
+0 0 10px #ffd700;
+
+}
+
+
+to {
+
+box-shadow:
+
+0 0 40px #ffd700;
+
+}
+
+}
+
+
+
+
+
+@keyframes crownBounce {
+
+
+0%,100%{
+
+transform:
+
+translateY(0);
+
+}
+
+
+50%{
+
+transform:
+
+translateY(-8px);
+
+}
+
+}
+
+
+
+
+
+@keyframes confettiFall {
+
+
+0%{
+
+transform:
+
+translateY(-20px)
+rotate(0deg);
+
+opacity:1;
+
+}
+
+
+100%{
+
+transform:
+
+translateY(110vh)
+rotate(720deg);
+
+opacity:0;
+
+}
+
+}
+
+
+
+
+
+@keyframes floatParticle {
+
+
+0%{
+
+transform:
+
+translateY(100vh)
+translateX(0);
+
+}
+
+
+50%{
+
+transform:
+
+translateY(50vh)
+translateX(50px);
+
+}
+
+
+100%{
+
+transform:
+
+translateY(-20vh)
+translateX(-30px);
+
+}
+
+}
+
+
+
+
+
+@keyframes spin {
+
+
+to{
+
+transform:
+
+rotate(360deg);
+
+}
+
+}
+
+
+
+
+
+@keyframes buttonGlow {
+
+
+0%{
+
+box-shadow:
+
+0 0 5px #ffd700;
+
+}
+
+
+50%{
+
+box-shadow:
+
+0 0 25px #ffd700;
+
+}
+
+
+100%{
+
+box-shadow:
+
+0 0 5px #ffd700;
+
+}
+
+}
+
+
+
+
+
+/* ==========================================================
+   RESPONSIVE MOBILE
+========================================================== */
+
+
+@media(max-width:768px){
+
+
+.activity-section{
+
+padding:15px;
+
+margin-top:50px;
+
+}
+
+
+
+.activity-title{
+
+font-size:25px;
+
+}
+
+
+
+.activity-box{
+
+padding:15px;
+
+}
+
+
+
+.activity-item{
+
+
+padding:14px;
+
+
+}
+
+
+
+.activity-icon{
+
+width:38px;
+
+height:38px;
+
+font-size:18px;
+
+}
+
+
+
+.activity-name{
+
+font-size:14px;
+
+}
+
+
+
+.activity-reward{
+
+font-size:13px;
+
+}
+
+
+
+.footer-logo{
+
+font-size:22px;
+
+}
+
+
+
+}
+
+
+
+@media(max-width:480px){
+
+
+.activity-item{
+
+flex-direction:
+
+row;
+
+}
+
+
+
+.activity-time{
+
+display:none;
+
+}
+
+
+
+.footer{
+
+padding:30px 15px;
+
+}
+
+
+}
+
+
+
+/* ==========================================================
+   END PART 3
+========================================================== */
